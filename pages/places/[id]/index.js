@@ -2,10 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router.js";
 import useSWR from "swr";
 import styled from "styled-components";
+import Comments from "../../../components/Comments.js";
 import { StyledLink } from "../../../components/StyledLink.js";
 import { StyledButton } from "../../../components/StyledButton.js";
 import { StyledImage } from "../../../components/StyledImage.js";
-import Comments from "../../../components/Comments.js";
 
 const ImageContainer = styled.div`
   position: relative;
@@ -33,21 +33,24 @@ export default function DetailsPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const {
-    data: { place, comments } = {},
-    isLoading,
-    error,
-  } = useSWR(`/api/places/${id}`);
+
+  const { data: place, isLoading, error } = useSWR(`/api/places/${id}`);
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
 
-  function deletePlace() {
-    console.log("deleted?");
+  async function deletePlace() {
+    if (confirm("are you sure you want to delete this place?")) {
+      await fetch(`/api/places/${id}`, {
+        method: "DELETE",
+      });
+      router.push("/");
+      return;
+    }
   }
 
   return (
     <>
-      <Link href={'/'} passHref legacyBehavior>
+      <Link href={"/"} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
       <ImageContainer>
@@ -76,7 +79,7 @@ export default function DetailsPage() {
           Delete
         </StyledButton>
       </ButtonContainer>
-      <Comments locationName={place.name} comments={comments} />
+      <Comments locationName={place.name} />
     </>
   );
 }
