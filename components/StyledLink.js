@@ -8,6 +8,10 @@ export const StyledLink = styled.a`
   text-decoration: none;
   font-weight: bold;
 
+  &:hover {
+    color: #ef036c; /* Color interactivo al pasar el ratón */
+  }
+
   ${({ justifySelf }) =>
     justifySelf &&
     css`
@@ -19,6 +23,6 @@ export const StyledLink = styled.a`
     css`
       text-align: center;
       background-color: white;
-      border: 3px solid lightsalmon;
+      border: 3px #ef036c;
     `}
 `;

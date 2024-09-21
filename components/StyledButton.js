@@ -10,6 +10,10 @@ export const StyledButton = styled.button`
   border: none;
   font-size: inherit;
 
+  &:hover {
+    color: #ef036c; /* Color interactivo al pasar el ratón */
+  }
+
   ${({ variant }) =>
     variant === "delete" &&
     css`
