@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 import Form from "../components/Form.js";
 import { StyledLink } from "../components/StyledLink.js";
+//import DetailsPage from "./places/[id]/index.js";
 import useSWR from "swr";
 
 const StyledBackLink = styled(StyledLink)`
@@ -14,10 +15,10 @@ export default function CreatePlacePage() {
   async function addPlace(place) {
     const response = await fetch("/api/places", {
       method: "POST",
-      body: JSON.stringify(place),
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(place),
     });
     if (response.ok) {
       await response.json();
@@ -29,9 +30,9 @@ export default function CreatePlacePage() {
 
   return (
     <>
-      <h2 id="add-place">Add Place</h2>
+      <h3 id="add-place">Add Place</h3>
       <Link href="/" passHref legacyBehavior>
-        <StyledBackLink>back</StyledBackLink>
+        <StyledBackLink> 🔙 </StyledBackLink>
       </Link>
       <Form onSubmit={addPlace} formName={"add-place"} />
     </>

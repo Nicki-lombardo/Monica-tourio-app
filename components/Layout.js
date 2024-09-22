@@ -5,7 +5,7 @@ import Head from "next/head.js";
 const Main = styled.main`
   display: grid;
   gap: 0.5rem;
-  margin-top: 5rem;
+  margin-top: 7rem;
   padding: 0.5rem;
   position: relative;
   width: 100%;
@@ -15,7 +15,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Tourio</title>
+        <title>Tourio Travel App</title>
       </Head>
       <TitleBar />
       <Main>{children}</Main>

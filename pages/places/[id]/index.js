@@ -8,7 +8,6 @@ import { StyledButton } from "../../../components/StyledButton";
 import { StyledImage } from "../../../components/StyledImage";
 import { useState } from "react";
 
-
 const ImageContainer = styled.div`
   position: relative;
   height: 15rem;
@@ -48,6 +47,8 @@ const TextArea = styled.textarea`
   border: 1px solid #ccc;
   border-radius: 4px;
 `;
+
+// importar a....
 
 export default function DetailsPage() {
   const router = useRouter();

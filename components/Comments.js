@@ -7,7 +7,7 @@ export default function Comments({ locationName, comments }) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 5px solid black;
+    border: 3px solid black;
     border-radius: 0.8rem;
     padding: 0.5rem;
     text-align: center;

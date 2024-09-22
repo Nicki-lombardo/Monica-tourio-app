@@ -3,6 +3,7 @@ import Card from "../components/Card.js";
 import useSWR from "swr";
 import Link from "next/link.js";
 import { StyledLink } from "../components/StyledLink.js";
+//import createServer from "next/dist/server/next.js";
 
 const List = styled.ul`
   list-style: none;
@@ -24,7 +25,6 @@ const FixedLink = styled(StyledLink)`
 `;
 export default function Home() {
   const { data } = useSWR("/api/places", { fallbackData: [] });
-  console.log("DATA", data);
   return (
     <>
       <List role="list">
@@ -35,7 +35,7 @@ export default function Home() {
                 name={place.name}
                 image={place.image}
                 location={place.location}
-                id={place._id}
+                id={`${place._id.$oid ?? place._id}`}
               />
             </ListItem>
           );
