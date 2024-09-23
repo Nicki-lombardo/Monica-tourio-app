@@ -15,7 +15,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Tourio Travel App</title>
+        <title>Tourio ⛵</title>
       </Head>
       <TitleBar />
       <Main>{children}</Main>

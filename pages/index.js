@@ -42,7 +42,7 @@ export default function Home() {
         })}
       </List>
       <Link href="/create" passHref legacyBehavior>
-        <FixedLink>+ place</FixedLink>
+        <FixedLink> Add place</FixedLink>
       </Link>
     </>
   );

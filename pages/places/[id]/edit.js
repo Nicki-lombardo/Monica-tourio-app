@@ -14,6 +14,7 @@ export default function EditPage() {
     `/api/places/${id}`,
     sendRequest
   );
+  
   async function sendRequest(url, { arg }) {
     const response = await fetch(url, {
       method: "PUT",

@@ -7,7 +7,10 @@ import { StyledLink } from "../components/StyledLink.js";
 import useSWR from "swr";
 
 const StyledBackLink = styled(StyledLink)`
-  justify-self: flex-start;
+  justify-self: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
 `;
 
 export default function CreatePlacePage() {
@@ -30,7 +33,6 @@ export default function CreatePlacePage() {
 
   return (
     <>
-      <h3 id="add-place">Add Place</h3>
       <Link href="/" passHref legacyBehavior>
         <StyledBackLink> 🔙 </StyledBackLink>
       </Link>
