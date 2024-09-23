@@ -1,8 +1,19 @@
 import styled from "styled-components";
 import { FormContainer, Input, Label } from "./Form";
 import { StyledButton } from "./StyledButton.js";
+import { useRouter } from "next/router.js";
+import useSWR from "swr";
 
-export default function Comments({ locationName, comments }) {
+export default function Comments({}) {
+  const router = useRouter();
+  const { data, error } = useSWR(`/api/comments/${router.query.id}`);
+  const comments = data;
+  const isLoading = !data && !error;
+  const isError = error;
+  const locationName = router.query.id;
+  const { id } = router.query;
+  const { mutate } = useSWR(`/api/comments/${id}`);
+
   const Article = styled.article`
     display: flex;
     flex-direction: column;
@@ -17,8 +28,29 @@ export default function Comments({ locationName, comments }) {
     }
   `;
 
-  function handleSubmitComment(e) {
+  async function handleSubmitComment(e) {
     e.preventDefault();
+
+    const FormData = new FormData(form);
+    const form = e.target;
+    const comments = Object.fromEntries(FormData.entries());
+
+    try {
+      const res = await fetch(`/api/comments/${id}`, {
+        method: "POST",
+        body: JSON.stringify(comments),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        form.reset();
+        mutate();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -32,11 +64,13 @@ export default function Comments({ locationName, comments }) {
       </FormContainer>
       {comments && (
         <>
-          <h1> {comments.length} fans commented on this place:</h1>
+          <h2>
+            {comments.length} We’d love to hear what you think. Leave a comment!
+          </h2>
           {comments.map(({ name, comment }, idx) => {
             return (
               <>
-                <p key={idx}>
+                <p key={_id}>
                   <small>
                     <strong>{name}</strong> commented on {locationName}
                   </small>

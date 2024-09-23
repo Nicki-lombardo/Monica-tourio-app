@@ -51,6 +51,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
           name="name"
           type="text"
           defaultValue={defaultData?.name}
+          required
         />
         <Label htmlFor="image-url">Image Url</Label>
         <Input
@@ -58,6 +59,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
           name="image"
           type="text"
           defaultValue={defaultData?.image}
+          required
         />
         <Label htmlFor="location">Location</Label>
         <Input
@@ -72,6 +74,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
           name="mapURL"
           type="text"
           defaultValue={defaultData?.mapURL}
+          required
         />
         <Label htmlFor="description">Description</Label>
         <Textarea
@@ -80,6 +83,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
           cols="30"
           rows="10"
           defaultValue={defaultData?.description}
+          required
         ></Textarea>
         <StyledButton type="submit">
           {defaultData ? "Update place" : "Add place"}
