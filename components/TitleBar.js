@@ -20,5 +20,5 @@ const Headline = styled.h1`
 `;
 
 export default function TitleBar() {
-  return <Headline>Tourio</Headline>;
+  return <Headline>Tourio ⛱️</Headline>;
 }
