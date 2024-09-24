@@ -10,7 +10,7 @@ Buil _rent a bike  App_
 
 ### Read Data
 
-- Set up a database; use the [`lib/Tourio-db.places.json` file](lib/Tourio-db.places.json) to insert sample data.
+- Set up a database; use the ...... to insert sample data.
 - In `pages/api/index.js`, replace the `db_places` variable imported from `lib/db.js` with a `GET` request from your database.
 - Do the same in `pages/api/places/[id]/index.js` for the details page.
 
@@ -40,7 +40,7 @@ Buil _rent a bike  App_
 
 - To add a comment section for each place, you'll need to create a database schema or collection to store comments associated with each place. Each comment should have a reference to the place it belongs to, such as a place ID.
 
-- Set up a database; use the [`lib/Tourio-db.comments.json` file](lib/Tourio-db.comments.json) to insert sample data.
+- Set up a database; use the ..... to insert sample data.
 
 - Create a form in your place detail page pages/places/[id]/index.js that allows users to submit comments.
 
