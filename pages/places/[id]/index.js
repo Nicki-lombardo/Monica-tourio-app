@@ -133,7 +133,7 @@ export default function DetailsPage() {
       </ButtonContainer>
       <Comments locationName={place.name} />
       <FormContainer>
-        <h2>Add a New Place</h2>
+        <h2>Add a New Bike</h2>
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
@@ -169,7 +169,7 @@ export default function DetailsPage() {
             onChange={(e) => setMapURL(e.target.value)}
             required
           />
-          <StyledButton type="submit">Add Place</StyledButton>
+          <StyledButton type="submit">Add Bike</StyledButton>
         </form>
       </FormContainer>
     </>

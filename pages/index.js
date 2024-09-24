@@ -42,7 +42,7 @@ export default function Home() {
         })}
       </List>
       <Link href="/create" passHref legacyBehavior>
-        <FixedLink> Add place</FixedLink>
+        <FixedLink> Add Bike</FixedLink>
       </Link>
     </>
   );

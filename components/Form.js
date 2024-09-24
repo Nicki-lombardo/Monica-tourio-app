@@ -45,7 +45,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
   return (
     <FormWrapper>
       <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
-        <Label htmlFor="name">Place name</Label>
+        <Label htmlFor="name">Bike category</Label>
         <Input
           id="name"
           name="name"
